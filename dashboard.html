@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Rakitin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">Rakitin<span>.</span></div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#">Pesanan</a>
+        <a href="#">Profil</a>
+        <a href="login.html">Keluar</a>
+    </nav>
+</header>
+
+<main class="dashboard">
+
+    <p class="label">DASHBOARD</p>
+    <h1>Halo, pengguna 👋</h1>
+    <p class="dashboard-text">
+        Kelola kebutuhan penyewaanmu di sini.
+    </p>
+
+    <div class="dashboard-grid">
+
+        <div class="dashboard-card">
+            <span>📦</span>
+            <h3>Pesanan Aktif</h3>
+            <strong>2</strong>
+            <p>Pesanan sedang berjalan</p>
+        </div>
+
+        <div class="dashboard-card">
+            <span>📅</span>
+            <h3>Jadwal Sewa</h3>
+            <strong>1</strong>
+            <p>Jadwal mendatang</p>
+        </div>
+
+        <div class="dashboard-card">
+            <span>💰</span>
+            <h3>Total Sewa</h3>
+            <strong>Rp150K</strong>
+            <p>Total pembayaran</p>
+        </div>
+
+    </div>
+
+    <div class="order">
+        <h2>Pesanan Terbaru</h2>
+
+        <div class="order-item">
+            <div>
+                <b>Proyektor Epson</b>
+                <p>20 September 2026 • 2 hari</p>
+            </div>
+
+            <span class="status">Aktif</span>
+        </div>
+
+        <div class="order-item">
+            <div>
+                <b>Speaker Portable</b>
+                <p>15 September 2026 • 1 hari</p>
+            </div>
+
+            <span class="status selesai">Selesai</span>
+        </div>
+    </div>
+
+</main>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Rakitin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Rakitin<span>.</span></div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#pesanan">Pesanan</a>
+        <a href="#barang">Data Barang</a>
+        <a href="#profil">Profil</a>
+        <a href="login.html">Keluar</a>
+    </nav>
+</header>
+
+<main class="dashboard">
+
+    <p class="label">DASHBOARD</p>
+
+    <h1>Halo, pengguna 👋</h1>
+
+    <p class="dashboard-text">
+        Kelola kebutuhan penyewaanmu di sini.
+    </p>
+
+
+    <!-- STATISTIK -->
+
+    <section class="dashboard-grid">
+
+        <div class="dashboard-card">
+            <span>📦</span>
+            <h3>Pesanan Aktif</h3>
+            <strong id="statAktif">0</strong>
+            <p>Pesanan sedang berjalan</p>
+        </div>
+
+        <div class="dashboard-card">
+            <span>📅</span>
+            <h3>Jadwal Sewa</h3>
+            <strong id="statJadwal">0</strong>
+            <p>Jadwal mendatang</p>
+        </div>
+
+        <div class="dashboard-card">
+            <span>💰</span>
+            <h3>Total Sewa</h3>
+            <strong id="statTotal">Rp0</strong>
+            <p>Total pembayaran</p>
+        </div>
+
+    </section>
+
+
+    <!-- CRUD DATA BARANG -->
+
+    <section class="panel" id="barang">
+
+        <div class="section-head">
+
+            <div>
+                <p class="label">CRUD DATA 1</p>
+                <h2>Data Barang</h2>
+            </div>
+
+            <button
+                class="btn primary"
+                onclick="openBarangModal()">
+                + Tambah Barang
+            </button>
+
+        </div>
+
+
+        <div class="table-wrap">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Barang</th>
+                        <th>Kategori</th>
+                        <th>Harga/Hari</th>
+                        <th>Status</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+
+                <tbody id="barangTable"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- CRUD DATA PESANAN -->
+
+    <section class="panel" id="pesanan">
+
+        <div class="section-head">
+
+            <div>
+                <p class="label">CRUD DATA 2</p>
+                <h2>Data Pesanan</h2>
+            </div>
+
+            <button
+                class="btn primary"
+                onclick="openPesananModal()">
+                + Tambah Pesanan
+            </button>
+
+        </div>
+
+
+        <div class="table-wrap">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Pelanggan</th>
+                        <th>Barang</th>
+                        <th>Tanggal</th>
+                        <th>Durasi</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+
+                <tbody id="pesananTable"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROFIL -->
+
+    <section class="panel" id="profil">
+
+        <p class="label">PROFIL</p>
+
+        <h2>Profil Pengguna</h2>
+
+        <p class="profile-text">
+            Halaman dashboard Rakitin untuk mengelola
+            barang dan penyewaan.
+        </p>
+
+    </section>
+
+</main>
+
+
+<!-- MODAL DATA BARANG -->
+
+<div class="modal" id="barangModal">
+
+    <div class="modal-box">
+
+        <button
+            class="close"
+            onclick="closeModal('barangModal')">
+            &times;
+        </button>
+
+        <h2 id="barangModalTitle">
+            Tambah Barang
+        </h2>
+
+        <form id="barangForm">
+
+            <input
+                type="hidden"
+                id="barangId">
+
+
+            <label>
+                Nama Barang
+
+                <input
+                    id="barangNama"
+                    type="text"
+                    required>
+            </label>
+
+
+            <label>
+                Kategori
+
+                <input
+                    id="barangKategori"
+                    type="text"
+                    required>
+            </label>
+
+
+            <label>
+                Harga per Hari
+
+                <input
+                    id="barangHarga"
+                    type="number"
+                    min="0"
+                    required>
+            </label>
+
+
+            <label>
+                Status
+
+                <select id="barangStatus">
+
+                    <option value="Tersedia">
+                        Tersedia
+                    </option>
+
+                    <option value="Disewa">
+                        Disewa
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <button
+                class="btn primary"
+                type="submit">
+                Simpan
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- MODAL PESANAN -->
+
+<div class="modal" id="pesananModal">
+
+    <div class="modal-box">
+
+        <button
+            class="close"
+            onclick="closeModal('pesananModal')">
+            &times;
+        </button>
+
+        <h2 id="pesananModalTitle">
+            Tambah Pesanan
+        </h2>
+
+
+        <form id="pesananForm">
+
+            <input
+                type="hidden"
+                id="pesananId">
+
+
+            <label>
+                Nama Pelanggan
+
+                <input
+                    id="pesananPelanggan"
+                    type="text"
+                    required>
+            </label>
+
+
+            <label>
+                Barang
+
+                <select
+                    id="pesananBarang"
+                    required>
+                </select>
+
+            </label>
+
+
+            <label>
+                Tanggal
+
+                <input
+                    id="pesananTanggal"
+                    type="date"
+                    required>
+            </label>
+
+
+            <label>
+                Durasi (hari)
+
+                <input
+                    id="pesananDurasi"
+                    type="number"
+                    min="1"
+                    required>
+            </label>
+
+
+            <label>
+                Status
+
+                <select id="pesananStatus">
+
+                    <option value="Aktif">
+                        Aktif
+                    </option>
+
+                    <option value="Selesai">
+                        Selesai
+                    </option>
+
+                    <option value="Menunggu">
+                        Menunggu
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <button
+                class="btn primary"
+                type="submit">
+                Simpan
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
